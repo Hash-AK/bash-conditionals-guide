@@ -24,3 +24,8 @@ fi
 Take caution to the whitespace after the first pair of square brackets and before the last one. It is mandatory, if you don't put it the script may fail.
 
 There's a very wide variety of conditionals you can use. I made this little table to help you get a brief understanding of them:
+
+| Conditional | What does it actually do | Example
+| ----- | ----- | ----- |
+| `-eq` | Verifies if the left operand is equal to the right's | `[[ 1 -eq 1 ]]`, returns `true` (so the commands are executed)
+| `-ne` | Verifies if the left operand is not equal to the right's | `[[ 1 -nq 0 ]]`, returns `true` (so the commands are executed)
