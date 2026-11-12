@@ -27,5 +27,10 @@ There's a very wide variety of conditionals you can use. I made this little tabl
 
 | Conditional | What does it actually do | Example
 | ----- | ----- | ----- |
-| `-eq` | Verifies if the left operand is equal to the right's | `[[ 1 -eq 1 ]]`, returns `true` (so the commands are executed)
-| `-ne` | Verifies if the left operand is not equal to the right's | `[[ 1 -nq 0 ]]`, returns `true` (so the commands are executed)
+| `-eq` | Verifies if the left operand is equal to the right's **(this is for numbers only)** | `[[ 1 -eq 1 ]]`, returns `true` (so the commands are executed)
+| `-ne` | Verifies if the left operand is not equal to the right's **(this is for numbers only)** | `[[ 1 -nq 0 ]]`, returns `true` (so the commands are executed)
+| `-z` | Verifies if the string to the right is empty | `[[ -z "A string" ]]`, returns `false` because `"A string"` isn't empty (so the commands are not executed)
+| `-n` | Verifies if the string to the right is not empty | `[[ -n "A string" ]]`, returns `true` because `"A string"` isn't empty (so the commands are executed)
+| `==` | Verifies if the string to the left is equal to the one on the right **(This is `-eq` equivalent but for strings only)** | `[[ "yes" == "no" ]]`, returns `false` because `"yes"` is not equal to `"no"` (so the commands aren't executed)
+
+
