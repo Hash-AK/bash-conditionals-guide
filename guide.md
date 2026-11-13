@@ -4,7 +4,7 @@ In many scripts that you will write, there will be, at one point, a need to make
 
 Conditionals, as you may deduce from the name, let you take actions based on one (or more!) conditions. In this guide I will show you how to use them properly in a script. 
 
-There's four (4) keywords for conditionals in Bash: `if`, `else`, `elif`, and `case`. We will go over here in the following sections. If you just need a quick reference table, scroll [to the end of the guide](#reference-tableconclusion)!
+There are four keywords for conditionals in Bash: `if`, `else`, `elif`, and `case`. We will go over here in the following sections. If you just need a quick reference table, scroll [to the end of the guide](#reference-tableconclusion)!
 
 
 ## If statements
@@ -45,6 +45,23 @@ There's a very wide variety of conditionals you can use. I made this little tabl
 | `-d` | Verifies if the file path on the right is a directory | `[[ -d /home/ ]]`
 | `-f` | Verifies if the file path on the right is a file | `[[ -f /home/user1/notes.txt ]]`
 
+### Combining operators
+
+You can combine more than one operators when doing an `if` (or `elif`, as we will see later) statement. Here's a few examples:
+
+```bash
+if [[ -r /home/user1/a-random-file.txt && -w /home/user1/a-random-file.txt ]]; then
+    echo "file is readable and writable"
+fi
+```
+As we can see here, you can combine two conditions using `&&`, meaning "if condition A **and** condition B is true, then...".
+
+```bash
+if [[ -r /home/user1/a-file.txt || -r /home/user1/another-file.txt ]]; then
+    echo "one of the two files is readable"
+fi
+```
+Here we do "if **either** condition A _or_ condition B is true, then...", using `||`.
 
 ## Else statements
 `else` lets you do another action if an `if` isn't true. For example:
