@@ -159,6 +159,7 @@ case "$variable" in
     *)
         commands
         ;;
+esac
 ```
 
 Use `==`/`!=` for strings, `-eq`/`-ne`/`-lt`/`-le`/`-gt`/`-ge` for numbers,
