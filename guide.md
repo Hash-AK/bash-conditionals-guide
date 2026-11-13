@@ -19,7 +19,7 @@ fi
 ```
 `if` checks if the answer to an operation is true (exit code 0), and if it is it will execute the commands that come after `then` and before `fi`.
 
->**NOTE**: _Technically speaking_, using the double square brackets isn't POSIX compliant (POSIX is a norm for Unix software compatibility), so if you want to be fully POSIX compliant you should use only one square bracket, but that make the statement behave differently. If you're interested reading more, I'd suggest reading [Baeldung's post on the matter](https://www.baeldung.com/linux/bash-single-vs-double-brackets). In this guide I'll be using double square bracket thought.
+>**NOTE**: _Technically speaking_, using the double square brackets isn't POSIX compliant (POSIX is a norm for Unix software compatibility), so if you want to be fully POSIX compliant you should use only one square bracket, but that makes the statement behave differently. If you're interested reading more, I'd suggest reading [Baeldung's post on the matter](https://www.baeldung.com/linux/bash-single-vs-double-brackets). In this guide I'll be using double square bracket thought.
 
 Take caution to the whitespace after the first pair of square brackets and before the last one. It is mandatory, if you don't put it the script may fail.
 
@@ -93,9 +93,9 @@ Of course you can chain more than one `elif`, so you could have, for example, on
 
 ## Case
 
-Now let's say you need to check _a lot of things_ and you don't want to make a nested `if`s structure because it'd be frankly annoying. `case` exists just for that reason: it lets you execute different commands depending on the value of a specific event. Here's an example: you take user input in a variable called `input`, and you want to have commands executed depending on what the input it (`greet`, `help`) and return a list of accepted keywords if the input is not one of these. Here's how to do it with `case`:
+Now let's say you need to check _a lot of things_ and you don't want to make a nested `if`s structure because it'd be frankly annoying. `case` exists just for that reason: it lets you execute different commands depending on the value of a specific event. Here's an example: you take user input in a variable called `input`, and you want to have commands executed depending on what the input is (`greet`, `help`) and return a list of accepted keywords if the input is not one of these. Here's how to do it with `case`:
 ```bash
-case $input in
+case "$input" in
 
     greet)
         echo "Hello"
@@ -122,9 +122,9 @@ You can make more complex cases. For example, to catch both `yes` and `y`, you c
 What if you want the cases to be case insensitive (so that you don't have to catch `y`, `Y`, `yes`, `Yes`, `YES`, `yES`, and so on)? You can use the `nocasematch` shell option to do that! Here's an example:
 
 ```bash
-# input if the variable that we want to do the case on
+# input is the variable that we want to do the case on
 shopt -s nocasematch
-case $input in
+case "$input" in
     y | yes)
         echo "you said yes"
         ;;
