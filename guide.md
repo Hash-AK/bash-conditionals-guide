@@ -93,7 +93,7 @@ Of course you can chain more than one `elif`, so you could have, for example, on
 
 ## Case
 
-Now let say you need to check _a lot of things_ and you don't want to make a nested `if`s structure because it'd be frankly annoying. `case` exists just for that reason: it let you execute different commands depending on the value of a specific event. Here's an example: you take user input in a variable called `input`, and you want to have commands executed depending on what the input it (`greet`, `help`) and return a list of accepted keywords if the input is not one of these. Here's how to do it with `case`:
+Now let's say you need to check _a lot of things_ and you don't want to make a nested `if`s structure because it'd be frankly annoying. `case` exists just for that reason: it lets you execute different commands depending on the value of a specific event. Here's an example: you take user input in a variable called `input`, and you want to have commands executed depending on what the input it (`greet`, `help`) and return a list of accepted keywords if the input is not one of these. Here's how to do it with `case`:
 ```bash
 case $input in
 
