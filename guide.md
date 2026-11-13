@@ -139,4 +139,29 @@ shopt -u nocasematch
 ```
 ## Reference Table/Conclusion
 
-_WIP_
+Here's a quick syntax recap:
+```bash
+if [[ conditions ]]; then
+    commands
+elif [[ conditions ]]; then
+    commands
+else
+    commands
+fi
+
+case "$variable" in
+    pattern)
+        commands
+        ;;
+    other)
+        commands
+        ;;
+    *)
+        commands
+        ;;
+```
+
+Use `==`/`!=` for strings, `-eq`/`-ne`/`-lt`/`-le`/`-gt`/`-ge` for numbers,
+and `-e`/`-f`/`-d`/`-r`/`-w`/`-x` for files. Quote your variables to prevent surprises.
+
+And that's it! `if`,`else`,`elif` and `case` covers almost every decisions your script could potentially have to take!
