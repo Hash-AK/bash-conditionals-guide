@@ -114,11 +114,28 @@ Here, we can see that we have possible cases: `$input` is either `greet`, `help`
 
 You can make more complex cases. For example, to catch both `yes` and `y`, you can do:
 ```bash
-<snip>
     y | yes)
         <commands>
         ;;
-<snip>
+```
+
+What if you want the cases to be case insensitive (so that you don't have to catch `y`, `Y`, `yes`, `Yes`, `YES`, `yES`, and so on)? You can use the `nocasematch` shell option to do that! Here's an example:
+
+```bash
+# input if the variable that we want to do the case on
+shopt -s nocasematch
+case $input in
+    y | yes)
+        echo "you said yes"
+        ;;
+    n | no)
+        echo "you said no"
+        ;;
+    *)
+        echo "you said something else"
+        ;;
+esac
+shopt -u nocasematch
 ```
 ## Reference Table/Conclusion
 
