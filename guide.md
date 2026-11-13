@@ -50,10 +50,10 @@ fi
 This example checks if the variable called `$variable` is equal to 5. If it is, it prints `variable is at 5`. If `$variable` is _not_ equal to 5, then `variable is not at 5` gets printed.
 
 
-`else` statements **must** follow an if statement; you can't use one without an if preceding it. Also, `else` cannot have conditionals (for example, you cannot do "if X isn't true, but Y is" using `else`. For that you need to yse [elif statements](#elif-statements) ).
+`else` statements **must** follow an if statement; you can't use one without an if preceding it. Also, `else` cannot have conditionals (for example, you cannot do "if X isn't true, but Y is" using `else`. For that you need to use [elif statements](#elif-statements) ).
 
 ## Elif statements
-`elif` statements literally stands for "else if": it's like an `else` statement, but that can `if` conditionals. For example, let say you want to check if `$variable` is at 5. If it is, you want to print `variable is at 5`. If it is _not_ at 5, but it is under 10, you want to print `variable not at 5 but under 10`. If neither is true, then you want to print `variable neither 5 nor under 10`. Here's how you'd use `elif` to do so:
+`elif` statements literally stands for "else if": it's like an `else` statement, but that can `if` conditionals. For example, let's say you want to check if `$variable` is at 5. If it is, you want to print `variable is at 5`. If it is _not_ at 5, but it is under 10, you want to print `variable not at 5 but under 10`. If neither is true, then you want to print `variable neither 5 nor under 10`. Here's how you'd use `elif` to do so:
 
 ```bash
 if [[ $variable -eq 5 ]]; then
@@ -79,7 +79,7 @@ case $input in
         echo "This is a demo to show you case"
         ;;
     *)
-        echo "Unknown keyword, accepted one are: greet and help."
+        echo "Unknown keyword, accepted ones are: greet and help."
         ;;
     
 esac
@@ -95,5 +95,5 @@ You can make more complex cases. For example, to catch both `yes` and `y`, you c
         ;;
 <snip>
 ```
-
 ## Reference Table/Conclusion
+
