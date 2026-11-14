@@ -137,6 +137,8 @@ case "$input" in
 esac
 shopt -u nocasematch
 ```
+`shopt` allows us to enable special shell options. In this case, we temporarily enabled the `nocasematch` option, which make Bash match patterns case-insensitively.
+
 ## Reference Table/Conclusion
 
 Here's a quick syntax recap:
