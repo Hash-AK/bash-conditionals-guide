@@ -1,4 +1,4 @@
-# Bash Conditionals: if, else, elif and case
+# Bash Conditionals: if, else, elif, and case
 
 In many scripts that you will write, there will be, at one point, a need to make decisions based on _something_. Whether it's an argument, a variable value, an exit code, etc. To do that, you'll need to use _conditionals_.
 
@@ -19,7 +19,7 @@ fi
 ```
 `if` checks if the answer to an operation is true (exit code 0), and if it is it will execute the commands that come after `then` and before `fi`.
 
->**NOTE**: _Technically speaking_, using the double square brackets isn't POSIX compliant (POSIX is a norm for Unix software compatibility), so if you want to be fully POSIX compliant you should use only one square bracket, but that makes the statement behave differently. If you're interested reading more, I'd suggest reading [Baeldung's post on the matter](https://www.baeldung.com/linux/bash-single-vs-double-brackets). In this guide I'll be using double square bracket thought.
+>**NOTE**: _Technically speaking_, using the double square brackets isn't POSIX compliant (POSIX is a norm for Unix software compatibility), so if you want to be fully POSIX compliant you should use only one square bracket, but that makes the statement behave differently. If you're interested reading more, I'd suggest reading [Baeldung's post on the matter](https://www.baeldung.com/linux/bash-single-vs-double-brackets). In this guide I'll be using double square bracket though.
 
 Take caution to the whitespace after the first pair of square brackets and before the last one. It is mandatory, if you don't put it the script may fail.
 
@@ -66,7 +66,7 @@ Here we do "if **either** condition A _or_ condition B is true, then...", using 
 ## Else statements
 `else` lets you do another action if an `if` isn't true. For example:
 ```bash
-if [[ $variable -eq 5 ]]; then
+if [[ "$variable" -eq 5 ]]; then
     echo "variable is at 5"
 else
     echo "variable is not at 5"
@@ -81,9 +81,9 @@ This example checks if the variable called `$variable` is equal to 5. If it is, 
 An `elif` statement literally stands for "else if": it's like an `else` statement, but that can `if` conditionals. For example, let's say you want to check if `$variable` is at 5. If it is, you want to print `variable is at 5`. If it is _not_ at 5, but it is under 10, you want to print `variable not at 5 but under 10`. If neither is true, then you want to print `variable neither 5 nor under 10`. Here's how you'd use `elif` to do so:
 
 ```bash
-if [[ $variable -eq 5 ]]; then
+if [[ "$variable" -eq 5 ]]; then
     echo "variable is at 5"
-elif [[ $variable -lt 10 ]]; then
+elif [[ "$variable" -lt 10 ]]; then
     echo "variable not at 5 but under 10"
 else
     echo "variable neither 5 nor under 10"
@@ -114,9 +114,14 @@ Here, we can see that we have possible cases: `$input` is either `greet`, `help`
 
 You can make more complex cases. For example, to catch both `yes` and `y`, you can do:
 ```bash
+case "$input" in
     y | yes)
         <commands>
         ;;
+    *)
+        <commands>
+        ;;
+esac
 ```
 
 What if you want the cases to be case insensitive (so that you don't have to catch `y`, `Y`, `yes`, `Yes`, `YES`, `yES`, and so on)? You can use the `nocasematch` shell option to do that! Here's an example:
@@ -169,6 +174,7 @@ shopt -u globstar #optional
 
 ```
 If you want to go further, you can even verify if the item is a directory or a file, and print out which one it is!
+
 ## Reference Table/Conclusion
 
 Here's a quick syntax recap:
