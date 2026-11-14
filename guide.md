@@ -139,6 +139,36 @@ shopt -u nocasematch
 ```
 `shopt` allows us to enable special shell options. In this case, we temporarily enabled the `nocasematch` option, which make Bash match patterns case-insensitively.
 
+## Exercise: Find the fish!
+
+Now it's time for an exercise! You need to write a script that walks down a directory and its subdirectories and print every item whose name contains the string "fish".
+
+For that you'll need a loop. If you don't know how to do one, here's the structure:
+
+```bash
+for item in **/*; do
+    # Your code goes here
+done
+```
+
+A few hints:
+
+- To make the above loop work, you will need to enable the shell option that makes `**` match subdirectories (`globstar`)
+- As you want to match _any_ item that has "fish" in the name, you need to use wildcards before and after that string (so `*fish*` as the condition).
+---
+### Solution
+```bash
+#!/bin/bash
+shopt -s globstar
+for item in **/*; do
+    if [[ "$item" == *fish* ]]; then
+        echo "Something fishy found: $item"
+    fi
+done
+shopt -u globstar #optional
+
+```
+If you want to go further, you can even verify if the item is a directory or a file, and print out which one it is!
 ## Reference Table/Conclusion
 
 Here's a quick syntax recap:
