@@ -23,7 +23,7 @@ fi
 
 Take caution to the whitespace after the first pair of square brackets and before the last one. It is mandatory, if you don't put it the script may fail.
 
-There's a very wide variety of conditionals you can use. I made this little table to help you get a brief understanding of them:
+There's a very wide variety of operators you can use. I made this little table to help you get a brief understanding of them:
 
 | Operator | What does it actually do | Example
 | ----- | ----- | ----- |
@@ -34,9 +34,9 @@ There's a very wide variety of conditionals you can use. I made this little tabl
 | `==` | Verifies if the string to the left is equal to the one on the right **(This is `-eq` equivalent but for strings only)** | `[[ "yes" == "no" ]]`, returns `false` because `"yes"` is not equal to `"no"` (so the commands are not executed)
 | `!=` | Verifies if the string to the left is not equal to the one on the right **(This is `-ne` equivalent but for strings only)** | `[[ "yes" != "no" ]]`,returns `true` because `"yes"` is not equal to `"no"` (so the commands are executed)
 | `-lt` | Verifies if the number to the left is less than the one on the right | `[[ 1 -lt 2 ]]`, returns `true` because 1 is lower than 2 (so the commands are executed)
-| `-le` | Verifies if the number to the left is less or equal to the one on the right | `[[ 1 -le 1 ]]`, returns `true` because 1 is lower or equal to 1 (so the commands are executed)
+| `-le` | Verifies if the number to the left is less than or equal to the one on the right | `[[ 1 -le 1 ]]`, returns `true` because 1 is lower than or equal to 1 (so the commands are executed)
 | `-gt` | Verifies if the number on the left is greater than the one on the right | `[[ 5 -gt 10 ]]`, returns `false` because 5 is not greater than 10 (so the commands are not executed)
-| `-ge` | Verifies if the number on the left is greater or equal than the one on the right | `[[ 5 -ge 4 ]]`, returns `true` because 5 is greater or equal to 4 (so the commands are executed)
+| `-ge` | Verifies if the number on the left is greater than or equal than the one on the right | `[[ 5 -ge 4 ]]`, returns `true` because 5 is greater than or equal to 4 (so the commands are executed)
 | `-e` | Verifies if the file path on the right exists | `[[ -e /home/user1/.bashrc ]]`
 | `-r` | Verifies if the file path on the right is readable | `[[ -r /etc/passwd ]]`
 | `-w` | Verifies if the file path on the right is writable | `[[ -w /home/user1/a-random-file.txt ]]`
@@ -47,14 +47,14 @@ There's a very wide variety of conditionals you can use. I made this little tabl
 
 ### Combining operators
 
-You can combine more than one operators when doing an `if` (or `elif`, as we will see later) statement. Here's a few examples:
+You can combine more than one operator when doing an `if` (or `elif`, as we will see later) statement. Here's a few examples:
 
 ```bash
 if [[ -r /home/user1/a-random-file.txt && -w /home/user1/a-random-file.txt ]]; then
     echo "file is readable and writable"
 fi
 ```
-As we can see here, you can combine two conditions using `&&`, meaning "if condition A **and** condition B is true, then...".
+As we can see here, you can combine two conditions using `&&`, meaning "if condition A **and** condition B are true, then...".
 
 ```bash
 if [[ -r /home/user1/a-file.txt || -r /home/user1/another-file.txt ]]; then
@@ -89,7 +89,7 @@ else
     echo "variable neither 5 nor under 10"
 fi
 ```
-Of course you can chain more than one `elif`, so you could have, for example, one `if`, 3 `elif`s, and one `else` at the end to catch everything the `elif`s doesn't.
+Of course you can chain more than one `elif`, so you could have, for example, one `if`, 3 `elif`s, and one `else` at the end to catch everything the `elif`s don't.
 
 ## Case
 
@@ -142,11 +142,11 @@ case "$input" in
 esac
 shopt -u nocasematch
 ```
-`shopt` allows us to enable special shell options. In this case, we temporarily enabled the `nocasematch` option, which make Bash match patterns case-insensitively.
+`shopt` allows us to enable special shell options. In this case, we temporarily enabled the `nocasematch` option, which makes Bash match patterns case-insensitively.
 
 ## Exercise: Find the fish!
 
-Now it's time for an exercise! You need to write a script that walks down a directory and its subdirectories and print every item whose name contains the string "fish".
+Now it's time for an exercise! You need to write a script that walks down a directory and its subdirectories and prints every item whose name contains the string "fish".
 
 For that you'll need a loop. If you don't know how to do one, here's the structure:
 
@@ -203,4 +203,4 @@ esac
 Use `==`/`!=` for strings, `-eq`/`-ne`/`-lt`/`-le`/`-gt`/`-ge` for numbers,
 and `-e`/`-f`/`-d`/`-r`/`-w`/`-x` for files. Quote your variables to prevent surprises.
 
-And that's it! `if`,`else`,`elif` and `case` covers almost every decisions your script could potentially have to take!
+And that's it! `if`,`else`,`elif`, and `case` covers almost every decisions your script could potentially have to take!
